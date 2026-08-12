@@ -6,7 +6,7 @@ pipeline {
         stage('CheckOut') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/sdevops5427/roboshop-frontend-v1.git'
+                    url: 'https://github.com/sdevops5427/roboshop-user-v1.git'
             }
         }
         stage('ECR Login') {
@@ -16,12 +16,12 @@ pipeline {
         }
         stage('Build Image') {
             steps {
-                sh "docker build -t 012751250483.dkr.ecr.us-east-1.amazonaws.com/frontend ."
+                sh "docker build -t 012751250483.dkr.ecr.us-east-1.amazonaws.com/user ."
             }
         }
         stage('Push Image') {
             steps {
-                sh "docker push 012751250483.dkr.ecr.us-east-1.amazonaws.com/frontend"
+                sh "docker push 012751250483.dkr.ecr.us-east-1.amazonaws.com/user"
             }
         }
     }
