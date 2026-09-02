@@ -1,9 +1,9 @@
 FROM        node:20-slim
 RUN         useradd -d /app roboshop
-USER        roboshop
 WORKDIR     /app
 COPY        package.json server.js /app/
 RUN         npm install
+USER        roboshop
 ENTRYPOINT  ["node", "/app/server.js"]
 
 
